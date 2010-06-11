@@ -7,7 +7,7 @@ $.fn.idle = function(options) {
 		interval:100
 	}
 	var opts = $.extend(defaults,options);		
-	$(this).live("mousemove",function() {
+	$(this).bind("mousemove",function() {
 		hasMoved = true;
 		lastMove = (new Date).getTime();
 		if(isidle) {
