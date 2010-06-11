@@ -3,7 +3,7 @@
 		return this.each(function () {
 			var isidle   = false,
 			    hasMoved = false,
-			    lastMove = (new Date).getTime(),
+			    lastMove = (new Date()).getTime(),
 			    opts;
 
 			if ($.isPlainObject(onactive)) {
@@ -18,19 +18,19 @@
 
 			$(this).bind("mousemove", function () {
 				hasMoved = true;
-				lastMove = (new Date).getTime();
+				lastMove = (new Date()).getTime();
 				if (isidle) {
 					onactive.call(this);
 					isidle = false;
 				}
 			});
 
-			window.setInterval(function() {
-				if ((new Date).getTime() - lastMove > opts.after) {
+			window.setInterval(function () {
+				if ((new Date()).getTime() - lastMove > opts.after) {
 					if (hasMoved) {
 						onidle.call(this);
 					}
-					lastMove = (new Date).getTime();
+					lastMove = (new Date()).getTime();
 					isidle = true;
 				}
 			}, opts.interval);
