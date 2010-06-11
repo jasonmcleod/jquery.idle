@@ -2,12 +2,12 @@ Stupid simple example
 $(document).ready(function() {
 	
 	$("#content").idle({
-		after:2000,
-		onidle:function() { 
+		function() { 
 			$("#content").fadeTo("slow",.1);							  
 		},
-		onactive:function() {
+		function() {
 			$("#content").fadeTo("fast",1);						  						
-		}
+		},
+		{after:3000}
 	});
 });
